@@ -1,24 +1,23 @@
-import { useEffect } from "react";
-import { createPortal } from "react-dom";
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
-const modalRoot = document.querySelector("#modal-root");
+const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ onClose, largeImageURL }) => {
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  });
+  }, [onClose]);
 
-  const handleKeyDown = (e) => {
-    if (e.code === "Escape") {
-      onClose();
-    }
-  };
-
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
