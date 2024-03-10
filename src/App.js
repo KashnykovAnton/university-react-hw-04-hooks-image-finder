@@ -20,11 +20,13 @@ const App = () => {
   const [largeImageURL, setLargeImageURL] = useState('');
 
   useEffect(() => {
+    if (value === '') return;
     const getImages = async () => {
       setIsLoading(true);
       try {
         const { hits, totalHits } = await getImagesApi(value, page);
         if (!totalHits) {
+          setShowButton(false);
           return infoMessage(
             'Unfortunately, there are no more images with this name'
           );
@@ -32,21 +34,20 @@ const App = () => {
         setImages(prevImages =>
           prevImages.length !== 0 ? [...prevImages, ...hits] : hits
         );
-        if (page < totalHits / 12) {
-          setShowButton(true);
-        } else {
+        if (page === Math.ceil(totalHits / 12)) {
           setShowButton(false);
-          infoMessage('Unfortunately, there are no more images with this name');
+          return infoMessage(
+            'Unfortunately, there are no more images with this name'
+          );
         }
+        setShowButton(true);
       } catch (error) {
         errorMessage(error.message);
       } finally {
         setIsLoading(false);
       }
     };
-    if (value !== '') {
-      getImages();
-    }
+    getImages();
   }, [value, page]);
 
   const handleSearchSubmit = searchValue => {

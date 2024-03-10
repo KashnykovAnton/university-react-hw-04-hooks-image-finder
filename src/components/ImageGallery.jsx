@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import ImageGalleryItem from './ImageGalleryItem';
 
 const ImageGallery = ({ data, onClose }) => {
@@ -7,7 +6,7 @@ const ImageGallery = ({ data, onClose }) => {
       <ul className="ImageGallery">
         {data.map(img => (
           <ImageGalleryItem
-            key={nanoid()}
+            key={img.id}
             webformatURL={img.webformatURL}
             largeImageURL={img.largeImageURL}
             tags={img.tags}
