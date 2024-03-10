@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/university-react-hw-04-hooks-image-finder/static/css/main.e6d0849a.css",
-    "main.js": "/university-react-hw-04-hooks-image-finder/static/js/main.baf03c14.js",
+    "main.js": "/university-react-hw-04-hooks-image-finder/static/js/main.709d3640.js",
     "index.html": "/university-react-hw-04-hooks-image-finder/index.html",
     "static/media/search_icon.svg": "/university-react-hw-04-hooks-image-finder/static/media/search_icon.014017f831c78bc6fd64.svg",
     "main.e6d0849a.css.map": "/university-react-hw-04-hooks-image-finder/static/css/main.e6d0849a.css.map",
-    "main.baf03c14.js.map": "/university-react-hw-04-hooks-image-finder/static/js/main.baf03c14.js.map"
+    "main.709d3640.js.map": "/university-react-hw-04-hooks-image-finder/static/js/main.709d3640.js.map"
   },
   "entrypoints": [
     "static/css/main.e6d0849a.css",
-    "static/js/main.baf03c14.js"
+    "static/js/main.709d3640.js"
   ]
 }
